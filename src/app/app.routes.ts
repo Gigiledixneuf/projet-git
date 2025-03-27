@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 
+
 export const routes: Routes = [
     {
         path: '',
@@ -33,3 +34,4 @@ export const routes: Routes = [
         component : CreateCategoryComponent
     }
 ];
+
