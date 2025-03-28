@@ -28,7 +28,7 @@ export class AccueilComponent implements AfterViewInit, OnDestroy {
     this.interval = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % 3; // Change d'image toutes les 5 secondes
       this.goToSlide(this.currentIndex); // Appelle la méthode pour changer de slide
-    }, 10000); // 5000 ms = 5 secondes
+    }, 5000); // 5000 ms = 5 secondes
   }
 
   goToSlide(index: number) {
