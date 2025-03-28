@@ -7,13 +7,13 @@ import { Injectable } from '@angular/core';
 export class CategoryService {
 
   categories : Category[] = []
-  
+
    // Création de la function getOne
      getOne(id: number):Category | undefined {
      return this.categories.find(categorie => categorie.id == id)
      }
-   
-   
+
+
      //Affichage avec fetch pour les api
      async all():Promise<Category[]>{
        let rep = await fetch('http://127.0.0.1:8000/api/categories', {
@@ -23,9 +23,9 @@ export class CategoryService {
          }
          // headers : {"authorization" : "Bearer " + localStorage.getItem("token")}
          }) .then(res => res.json())
-         
-       return rep 
-       
+
+       return rep
+
      }
 
     async storeCategory(nameParam:string, descriptionParam : string):Promise<Category>{
@@ -33,7 +33,7 @@ export class CategoryService {
         name: nameParam,
         description: descriptionParam
       }
-  
+
       let rep =  await fetch('http://127.0.0.1:8000/api/categories', {
                 method: 'POST',
                 body: JSON.stringify(contact),
@@ -42,7 +42,21 @@ export class CategoryService {
                 }
               })
               .then(reponse => reponse.json())
-      return rep 
+      return rep
+    }
+
+
+    async getArticlebyCategory(id: number):Promise<Category>{
+      let rep = await fetch(`http://127.0.0.1:8000/api/categories/${id}`,{
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+
+      ).then(reponse => reponse.json())
+      // console.log(rep)
+      return rep;
     }
 
 }
