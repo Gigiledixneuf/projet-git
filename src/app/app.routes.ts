@@ -6,9 +6,15 @@ import { CreateArticleComponent } from './create-article/create-article.componen
 import { LoginComponent } from './login/login.component';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 
 export const routes: Routes = [
+    
+    {
+        path: '',
+        component: AccueilComponent
+    },
     {
         path: '',
         component : LoginComponent
