@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { NewsletterComponent } from './newsletter/newsletter.component';
 
 
 export const routes: Routes = [
@@ -38,6 +39,10 @@ export const routes: Routes = [
     {
         path : 'create-category',
         component : CreateCategoryComponent
+    },
+    {
+        path : 'newsletter',
+        component : NewsletterComponent
     }
 ];
 
