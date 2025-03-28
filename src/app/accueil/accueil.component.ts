@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Carousel, initTWE, } from "tw-elements";
 
 @Component({
   selector: 'app-accueil',
@@ -8,5 +7,8 @@ import { Carousel, initTWE, } from "tw-elements";
 })
 export class AccueilComponent {
 // Initialization for ES Users
+
+ngOnInit(){
 }
-initTWE({ Carousel });
+}
+
