@@ -1,7 +1,8 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {ArticleApi} from '../models/article-api';
 import {response} from 'express';
 import {throws} from 'node:assert';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -30,21 +31,34 @@ export class ArticleService {
     title: string,
     content: string,
     categories: number[],
+    tags: number[],
     photo: string,
     auteur: string,
   }) {
 
-    console.log(data)
     return fetch('http://127.0.0.1:8000/api/articles', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
-    }).then(response => response.json())
-      .then(d => {
-        console.log(d)
-      })
+    })
+
+
+  }
+
+  async likeArticle(data: {
+    articleId: number
+  }) {
+
+    console.log(data)
+    return fetch('http://127.0.0.1:8000/api/likes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
 
   }
 
