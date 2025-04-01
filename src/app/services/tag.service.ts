@@ -1,22 +1,23 @@
-import { BASE_URL } from '../app.tokens';
-import { Category } from './../models/category';
 import { inject, Injectable } from '@angular/core';
+import { Tag } from '../models/tag';
+import { BASE_URL } from '../app.tokens';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CategoryService {
-  categories: Category[] = [];
+export class TagService {
+  tags: Tag[] = [];
+
   url = inject(BASE_URL);
 
   // Création de la function getOne
-  getOne(id: number): Category | undefined {
-    return this.categories.find((categorie) => categorie.id == id);
+  getOneTag(id: number): Tag | undefined {
+    return this.tags.find((tag) => tag.id == id);
   }
 
   //Affichage avec fetch pour les api
-  async all(): Promise<Category[]> {
-    let rep = await fetch(`${this.url}/api/categories`, {
+  async allTags(): Promise<Tag[]> {
+    let rep = await fetch(`${this.url}/api/tags`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -27,22 +28,22 @@ export class CategoryService {
     return rep;
   }
 
-  async storeCategory(name: string, description: string): Promise<Category> {
-    const categoryData = {
+  async storeTag(name: string, description: string): Promise<Tag> {
+    const tagData = {
       name: name,
       description: description,
     };
 
-    const response = await fetch(`${this.url}/api/categories`, {
+    const response = await fetch(`${this.url}/api/tags`, {
       method: 'POST',
-      body: JSON.stringify(categoryData),
+      body: JSON.stringify(tagData),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (!response.ok) {
-      throw new Error('Erreur lors de la création de la catégorie');
+      throw new Error('Erreur lors de la création du tag');
     }
 
     return await response.json();

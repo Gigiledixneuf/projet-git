@@ -5,6 +5,9 @@ import {CategoryService} from '../services/category.service';
 import {Category} from '../models/category';
 import {formatDate, NgForOf, NgIf} from '@angular/common';
 import {Router} from '@angular/router';
+import { Tag } from '../models/tag';
+import { TagService } from '../services/tag.service';
+import { log } from 'console';
 
 @Component({
   selector: 'app-create-article',
@@ -21,27 +24,37 @@ export class CreateArticleComponent {
 
   private articleService = inject(ArticleService)
   private categoryService = inject(CategoryService)
+  private tagService = inject(TagService)
   route: Router = inject(Router);
 
   errorMessage?: string
   successMessage?: string
 
   categories: Category[] = []
+  tags: Tag[] = []
 
   formData = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.min(3)]),
     photo: new FormControl('', [Validators.required]),
     auteur: new FormControl('', [Validators.required]),
     content: new FormControl('', [Validators.required, Validators.minLength(100)]),
-    categories: new FormControl([],[Validators.required])
+    categories: new FormControl([],[Validators.required]),
+    tags : new FormControl([])
   })
 
   async ngOnInit() {
     await this.getCategories()
+    await this.getTags()
   }
 
   async getCategories() {
     this.categories = await this.categoryService.all()
+    console.log(this.categories);
+
+  }
+
+  async getTags(){
+    this.tags = await this.tagService.allTags()
   }
 
   async onSubmitForm() {
@@ -56,7 +69,8 @@ export class CreateArticleComponent {
           photo: this.formData.value.photo ?? '',
           auteur: this.formData.value.auteur ?? '',
           content: this.formData.value.content ?? '',
-          categories: this.formData.value.categories ?? []
+          categories: this.formData.value.categories ?? [],
+          tags: this.formData.value.tags ?? []
         })
         this.formData.reset()
         await this.route.navigate(['/articles'])
