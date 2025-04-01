@@ -21,7 +21,7 @@ export class FooterComponent implements OnInit {
 
   async loadThreeArticles(): Promise<void> {
     try {
-      this.articles = await this.articleService.getTrois();
+      this.articles = await this.articleService.getTroisArticle();
     } catch (error) {
       console.error('Error loading articles:', error);
     }

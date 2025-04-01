@@ -60,7 +60,7 @@ export class ArticleService {
       .then((response) => response.json())
       .then((data) => data.data);
   }
-  async getTrois(): Promise<ArticleApi[]> {
+  async getTroisArticle(): Promise<ArticleApi[]> {
     return fetch(`http://127.0.0.1:8000/api/trois`)
       .then(response => response.json())
       .then(data => {
