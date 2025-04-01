@@ -1,2 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    color: white;
+    text-decoration: none;
+}
+
+.share-button.bg-blue-600 {
+    background-color: #2563eb;
+}
+
+.share-button.bg-blue-600:hover {
+    background-color: #1d4ed8;
+}
+
+.share-button.bg-green-500 {
+    background-color: #22c55e;
+}
+
+.share-button.bg-green-500:hover {
+    background-color: #16a34a;
+}

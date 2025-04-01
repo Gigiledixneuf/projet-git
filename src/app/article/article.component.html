@@ -45,8 +45,11 @@
       <a [routerLink]="['/article', article.id]"
          class="bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-red-700">
         Voir plus
-      </a>
+      </a>    
     </div>
+  </div>
+  <div class="mt-4 flex justify-end">
+    <app-share-buttons [articleTitle]="article.title" [articleUrl]="getArticleUrl()"></app-share-buttons>
   </div>
 </article>
 <br>

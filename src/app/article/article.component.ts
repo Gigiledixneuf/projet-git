@@ -3,10 +3,11 @@ import {RouterLink} from '@angular/router';
 import {ArticleApi} from '../models/article-api';
 import {NgFor} from '@angular/common';
 import {ArticleService} from '../services/article.service';
+import { ShareButtonsComponent } from '../share-button/share-button.component';
 
 @Component({
   selector: 'app-article',
-  imports: [RouterLink, NgFor],
+  imports: [RouterLink, NgFor, ShareButtonsComponent],
   templateUrl: './article.component.html',
   standalone: true,
   styleUrl: './article.component.css'
@@ -30,6 +31,11 @@ export class ArticleComponent {
     } catch (e) {
       console.log('error', e)
     }
+  }
+
+  // Function pour récupérer l'URL de l'article
+  getArticleUrl(): string{
+    return `${window.location.origin}/article/${this.article.id}`;
   }
 
 }
