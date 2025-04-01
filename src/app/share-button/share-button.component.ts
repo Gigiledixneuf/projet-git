@@ -24,6 +24,13 @@ export class ShareButtonsComponent {
   }
 
   getShareLink(platform: string): string {
+
+    if (!this.articleUrl || !this.articleTitle){
+      console.error('Article URL ou Article Title est manquant');
+
+      return '#';
+    }
+
     switch (platform) {
       case 'facebook':
         return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(this.articleUrl)}`;
