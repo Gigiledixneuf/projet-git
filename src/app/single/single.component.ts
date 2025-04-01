@@ -3,10 +3,12 @@ import { ArticleService } from '../services/article.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgFor } from '@angular/common';
 import { ArticleApi } from '../models/article-api';
+import { ListAdsComponent } from '../list-ads/list-ads.component';
+import { BannerAdsComponent } from '../banner-ads/banner-ads.component';
 
 @Component({
   selector: 'app-single',
-  imports: [NgFor],
+  imports: [NgFor, ListAdsComponent, BannerAdsComponent],
   templateUrl: './single.component.html',
   styleUrl: './single.component.css',
 })
