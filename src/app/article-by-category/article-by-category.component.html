@@ -5,13 +5,9 @@
 <div>
   <div class="flex justify-between items-center  pt-4">
     <h1 class="text-3xl font-bold underline">Liste Articles</h1>
-    <a [routerLink]="['/create-article']"
-       class="bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-red-700">
-      Ajouter un article
-    </a>
   </div>
   <br>
-  <app-article *ngFor="let article of articles" [article]="article" (refreshPage)="onRefreshPage()"></app-article>
+  <app-article *ngFor="let article of articles" [article]="article"></app-article>
 </div>
 <div class="text-center">
   <div role="status">
@@ -49,4 +45,3 @@
   </ul>
 </nav>
 <br><br>
-<app-footer></app-footer>
