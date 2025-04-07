@@ -12,6 +12,7 @@ import { TagListComponent } from './pages/tag-list/tag-list.component';
 import { CreateTagComponent } from './pages/create-tag/create-tag.component';
 import { EditArticleComponent } from './pages/edit-article/edit-article.component';
 import { ArticleByCategoryComponent } from './pages/article-by-category/article-by-category.component';
+import { ProfilComponent } from './pages/profil/profil.component';
 
 export const routes: Routes = [
   {
@@ -65,5 +66,10 @@ export const routes: Routes = [
   {
     path : 'tags/:id',
     component : ArticleByCategoryComponent
+  },
+  {
+    path:'profil',
+    component:ProfilComponent,
+    title:'Profil'
   }
 ];
