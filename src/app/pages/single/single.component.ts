@@ -5,11 +5,12 @@ import { ArticleApi } from '../../models/article-api';
 import { Comment } from '../../models/comment';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ArticleCarouselComponent } from "../article-carousel/article-carousel.component";
 
 
 @Component({
   selector: 'app-single',
-  imports: [NgFor, ReactiveFormsModule],
+  imports: [NgFor, ReactiveFormsModule, ArticleCarouselComponent],
   templateUrl: './single.component.html',
   styleUrl: './single.component.css',
 })
@@ -26,7 +27,7 @@ export class SingleComponent {
     this.isConnected = !!localStorage.getItem('token');
 
     this.articleId = Number(this.route.snapshot.paramMap.get('id'));
-    
+
     // Utilisation de await pour récupérer l'article avant l'affichage
     this.article = await this.service.getOne(this.articleId);
     this.comments = await this.service.getComments(this.articleId);
@@ -59,7 +60,7 @@ export class SingleComponent {
       alert('Vous devez vous connecter pour ajouter un commentaire')
       this.router.navigate(['/login']);
     }
-    
+
 
   }
 }

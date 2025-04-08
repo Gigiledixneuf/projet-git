@@ -3,7 +3,7 @@
 <br />
 <br />
 <br />
-<div class="max-w-3xl mx-auto p-4 bg-white shadow-md rounded-lg">
+<div class="max-w-3xl mx-auto pt-15 bg-white shadow-md rounded-lg">
   <!-- Titre de l'article -->
   <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ article?.title }}</h1>
 
@@ -73,7 +73,7 @@
       <div>
         <img src="https://i.pravatar.cc/40" class="w-10 h-10 rounded-full" />
       </div>
-  
+
       <div class="flex-1">
         <div class="flex items-center space-x-2">
           <b class="text-gray-900">{{ comment.user.name }}</b>
@@ -85,7 +85,10 @@
       </div>
     </div>
   </div>
+
+  <app-article-carousel></app-article-carousel>
 </div>
+
 <br />
 <br />
 <br />
