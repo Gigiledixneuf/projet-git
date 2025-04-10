@@ -48,10 +48,14 @@
       <!-- AUTEUR + DATE -->
       <div class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
         <img
-          [src]="'https://ui-avatars.com/api/?name=' + article.auteur.name"
+          [src]="'https://ui-avatars.com/api/?name='"
           class="w-6 h-6 rounded-full"
         />
-        <span>{{ article.auteur.name }}</span>
+        @if (!article.auteur) {
+          <span></span>
+        }@else {
+          <span>{{ article.auteur.name }}</span>
+        }
         <span>•</span>
         <span>{{ article.date_creation }}</span>
       </div>

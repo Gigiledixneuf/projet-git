@@ -8,10 +8,11 @@ import { Links } from '../../models/links';
 import { Meta } from '../../models/meta';
 import { VideoComponent } from '../article-video/video.component';
 import { ArtcileVidComponent } from "../artcile-vid/artcile-vid.component";
+import { LastArticleComponent } from "../last-article/last-article.component";
 
 @Component({
   selector: 'app-article-list',
-  imports: [ArticleComponent, NgFor, RouterLink, NgForOf, NgClass,ArtcileVidComponent, NgIf],
+  imports: [ArticleComponent, NgFor, RouterLink, NgForOf, NgClass, ArtcileVidComponent, NgIf, LastArticleComponent],
   templateUrl: './article-list.component.html',
   standalone: true,
   styleUrl: './article-list.component.css',
