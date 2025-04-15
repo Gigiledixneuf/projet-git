@@ -71,5 +71,6 @@ export const routes: Routes = [
   {
     path : 'tags/:id',
     component : ArticleByTagComponent
+    
   }
 ];
